@@ -2658,6 +2658,7 @@ input, select, textarea {
 
 		}
 
+	/* Existing Base styles for the .image-txt-container */
 	.image-txt-container {
 	    display: flex;
 	    align-items: flex-start; /* Align items at the top */
@@ -2665,10 +2666,29 @@ input, select, textarea {
 
 	.image-txt-container img {
 	    margin-right: 20px; /* Adds space between the image and the text */
+	    width: 360px; /* Fixed width for desktop */
+	    height: 480px; /* Fixed height for desktop */
 	}
 
 	.content {
 	    flex: 1; /* Allows the content to fill the remaining space to the right of the image */
+	}
+
+	a.image {
+	    overflow: hidden;
+	}
+
+	/* Responsive styles for screens smaller than 600px */
+	@media (max-width: 600px) {
+	    .image-txt-container img {
+		width: 100%; /* Make image width responsive */
+		height: auto; /* Maintain aspect ratio */
+		margin-right: 0; /* Remove margin on smaller screens */
+	    }
+	    .content, .nav, .header, article, footer {
+		padding: 10px; /* Adjust padding */
+		font-size: 14px; /* Adjust font size for readability on small screens */
+	    }
 	}
 
 	a.image {
