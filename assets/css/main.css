@@ -2658,38 +2658,62 @@ input, select, textarea {
 
 		}
 
-	/* Existing Base styles for the .image-txt-container */
+	/* Base styles */
 	.image-txt-container {
 	    display: flex;
-	    align-items: flex-start; /* Align items at the top */
+	    flex-direction: row; /* Ensure default flex direction is row */
+	    align-items: center; /* Vertically center align items */
+	    flex-wrap: wrap; /* Allow items to wrap on smaller screens */
+	    margin-bottom: 20px; /* Add some margin for separation */
 	}
 
 	.image-txt-container img {
-	    margin-right: 20px; /* Adds space between the image and the text */
-	    width: 360px; /* Fixed width for desktop */
-	    height: 480px; /* Fixed height for desktop */
+	    flex-shrink: 0; /* Prevent the image from shrinking */
+	    margin-right: 20px; /* Space between the image and the text */
+	    width: 360px; /* Fixed width for larger screens */
+	    height: 480px; /* Fixed height for larger screens */
 	}
 
 	.content {
-	    flex: 1; /* Allows the content to fill the remaining space to the right of the image */
-	}
-
-	a.image {
-	    overflow: hidden;
+	    flex: 1; /* Allows content to take the remaining space */
+	    max-width: calc(100% - 380px); /* Calculate the width minus image width and margin */
 	}
 
 	/* Responsive styles for screens smaller than 600px */
 	@media (max-width: 600px) {
-	    .image-txt-container img {
-		width: 100%; /* Make image width responsive */
-		height: auto; /* Maintain aspect ratio */
-		margin-right: 0; /* Remove margin on smaller screens */
-	    }
-	    .content, .nav, .header, article, footer {
-		padding: 10px; /* Adjust padding */
-		font-size: 14px; /* Adjust font size for readability on small screens */
-	    }
+		    .image-txt-container {
+			flex-direction: column; /* Stack image and text vertically on small screens */
+			align-items: center; /* Center align items for a better appearance */
+		    }
+
+		    .image-txt-container img {
+			width: 90%; /* Make image take almost full width */
+			height: auto; /* Maintain aspect ratio */
+			margin-right: 0; /* Remove margin since it's now vertically stacked */
+		    }
+
+		    .content {
+			max-width: 100%; /* Allow content to take full width below the image */
+			text-align: center; /* Center align the text for a better visual appearance on small screens */
+		    }
 	}
+
+a.image {
+    overflow: hidden;
+}
+
+/* Responsive styles for screens smaller than 600px */
+@media (max-width: 600px) {
+    .image-txt-container img {
+        width: 100%; /* Make image width responsive */
+        height: auto; /* Maintain aspect ratio */
+        margin-right: 0; /* Remove margin on smaller screens */
+    }
+    .content, .nav, .header, article, footer {
+        padding: 10px; /* Adjust padding */
+        font-size: 14px; /* Adjust font size for readability on small screens */
+    }
+}
 
 	a.image {
 		overflow: hidden;
