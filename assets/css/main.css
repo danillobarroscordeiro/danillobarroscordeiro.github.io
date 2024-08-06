@@ -2658,6 +2658,19 @@ input, select, textarea {
 
 		}
 
+	.image-txt-container {
+	    display: flex;
+	    align-items: flex-start; /* Align items at the top */
+	}
+
+	.image-txt-container img {
+	    margin-right: 20px; /* Adds space between the image and the text */
+	}
+
+	.content {
+	    flex: 1; /* Allows the content to fill the remaining space to the right of the image */
+	}
+
 	a.image {
 		overflow: hidden;
 	}
@@ -3948,13 +3961,13 @@ input, select, textarea {
 /* Footer */
 
 	#footer {
-		color: #717981;
+		color: #ffffff;
 		display: -moz-flex;
 		display: -webkit-flex;
 		display: -ms-flex;
 		display: flex;
-		background-color: #f5f5f5;
-		color: #909498;
+		background-color: #ffffff;
+		color: #ffffff;
 		cursor: default;
 		position: relative;
 		margin: 0 auto;
